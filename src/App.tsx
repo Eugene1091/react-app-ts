@@ -3,14 +3,12 @@ import './App.css';
 import { Footer } from './Footer.tsx';
 import data from "./data.json";
 
-type DataType = {
-  title: string;
-  description: string;
-  items: string[];
-};
-
 type propsData = {
-  props: DataType;
+  props: {
+    title: string;
+    description: string;
+    items: string[];
+  }
 }
 
 const JsonDataComponent : React.FC<propsData> = ({ props }) => {
