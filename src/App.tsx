@@ -1,11 +1,36 @@
 import React from 'react';
 import './App.css';
 import { Footer } from './Footer.tsx';
+import data from "./data.json";
+
+type DataType = {
+  title: string;
+  description: string;
+  items: string[];
+};
+
+type propsData = {
+  props: DataType;
+}
+
+const JsonDataComponent : React.FC<propsData> = ({ props }) => {
+  return (
+    <div>
+      <h1>{props.title}</h1>
+      <p>{props.description}</p>
+      <ul>
+        {props.items.map((item, index) => (
+          <li key={index}>{item}</li>
+        ))}
+      </ul>
+    </div>
+  );
+};
 
 
 const App = () => (
   <div className="App">
-    <h1>Test1</h1>
+    <JsonDataComponent props={data} />
     <Footer text='lorem' />
   </div>
 )
